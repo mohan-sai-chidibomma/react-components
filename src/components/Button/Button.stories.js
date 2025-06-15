@@ -11,17 +11,20 @@ export default {
   tags: ["autodocs"],
   args: {
     onClick: fn(),
-    children: ["Button"],
+    children: "Button",
+  },
+  argTypes: {
+    children: { control: "text" },
   },
 };
 
 export const Primary = {
-  args: { children: ["Button"], buttonType: "primary", size: "medium" },
+  args: { children: "Button", buttonType: "primary", size: "medium" },
 };
 
 export const Secondary = {
   args: {
-    children: ["Button"],
+    children: "Button",
     buttonType: "secondary",
     size: "medium",
   },
@@ -29,7 +32,7 @@ export const Secondary = {
 
 export const Danger = {
   args: {
-    children: ["Button"],
+    children: "Button",
     buttonType: "danger",
     size: "medium",
   },

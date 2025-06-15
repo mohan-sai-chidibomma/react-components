@@ -19,7 +19,7 @@ const Button = ({
 };
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   buttonType: PropTypes.oneOf(["primary", "secondary", "danger"]),
   size: PropTypes.oneOf(["large", "medium", "small"]),
 };
