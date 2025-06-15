@@ -7,9 +7,12 @@ const Button = ({
   children,
   buttonType = "primary",
   size = "medium",
+  disabled = false,
   ...props
 }) => {
-  const className = `btn btn-${buttonType} btn-${size}`;
+  const className = `btn btn-${buttonType} btn-${size} ${
+    disabled ? "btn-disabled" : ""
+  }`;
 
   return (
     <button className={className} {...props}>
@@ -22,12 +25,14 @@ Button.propTypes = {
   children: PropTypes.node.isRequired,
   buttonType: PropTypes.oneOf(["primary", "secondary", "danger"]),
   size: PropTypes.oneOf(["large", "medium", "small"]),
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
   children: "Button",
   buttonType: "primary",
   size: "medium",
+  disabled: false,
 };
 
 export default Button;

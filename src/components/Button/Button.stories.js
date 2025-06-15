@@ -15,6 +15,7 @@ export default {
   },
   argTypes: {
     children: { control: "text" },
+    disabled: { control: "boolean" },
   },
 };
 
