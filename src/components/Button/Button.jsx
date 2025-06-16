@@ -7,15 +7,14 @@ const Button = ({
   children,
   buttonType = "primary",
   size = "medium",
-  disabled = false,
   ...props
 }) => {
   const className = `btn btn-${buttonType} btn-${size} ${
-    disabled ? "btn-disabled" : ""
+    props.disabled ? "btn-disabled" : ""
   }`;
 
   return (
-    <button className={className} disabled={disabled} {...props}>
+    <button className={className} {...props}>
       {children}
     </button>
   );
