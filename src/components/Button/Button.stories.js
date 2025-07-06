@@ -3,7 +3,7 @@ import Button from "./Button";
 import { fn } from "storybook/test";
 
 export default {
-  title: "Mohan Sai/React Components",
+  title: "Mohan Sai/React Components/Button",
   component: Button,
   parameters: {
     layout: "centered",
