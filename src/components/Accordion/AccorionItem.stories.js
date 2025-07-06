@@ -1,5 +1,6 @@
 import React from "react";
 import AccordionItem from "./AccordionItem";
+import { fn } from "storybook/internal/test";
 
 export default {
   title: "Mohan Sai/React Components/AccordionItem",
@@ -13,8 +14,18 @@ const sampleItem = {
   content: "React is a JavaScript library for building user interfaces.",
 };
 
-export const Default = {
+export const Open = {
   args: {
     item: sampleItem,
+    openId: 1,
+    setOpenId: fn(),
+  },
+};
+
+export const Collapsed = {
+  args: {
+    item: sampleItem,
+    openId: null,
+    setOpenId: fn(),
   },
 };

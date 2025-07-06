@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AccordionItem from "./AccordionItem";
-const FAQS = [
+export const FAQS = [
   {
     id: 1,
     title: "What is React?",

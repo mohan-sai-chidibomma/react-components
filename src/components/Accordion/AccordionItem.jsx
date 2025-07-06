@@ -65,6 +65,6 @@ AccordionItem.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
   }),
-  openId: PropTypes.number,
+  openId: PropTypes.oneOfType([PropTypes.number, PropTypes.oneOf([null])]),
   setOpenId: PropTypes.func,
 };
