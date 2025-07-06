@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AccordionItem from "./AccordionItem";
 const FAQS = [
@@ -20,10 +20,16 @@ const FAQS = [
 ];
 
 export default function Accordion({ data = FAQS }) {
+  const [openId, setOpenId] = useState(null);
   return (
     <div className="accordion">
       {data.map((item) => (
-        <AccordionItem key={item.id} item={item} />
+        <AccordionItem
+          key={item.id}
+          item={item}
+          openId={openId}
+          setOpenId={setOpenId}
+        />
       ))}
     </div>
   );

@@ -1,9 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import "./Accordion-Item.css";
 
-export default function AccordionItem({ item }) {
-  const [isOpen, setIsOpen] = useState(false);
+export default function AccordionItem({ item, openId, setOpenId }) {
+  const isOpen = openId === item.id;
+
+  const handleIconClick = () => {
+    isOpen ? setOpenId(null) : setOpenId(item.id);
+  };
   return (
     <div className="accordion-item">
       <p className="accordion-item-serial-number">
@@ -13,7 +17,7 @@ export default function AccordionItem({ item }) {
       <button
         type="button"
         className="accordion-item-toggle"
-        onClick={() => setIsOpen((prevState) => !prevState)}
+        onClick={handleIconClick}
         aria-label="Toggle accordion item"
       >
         {isOpen ? (
@@ -61,4 +65,6 @@ AccordionItem.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string.isRequired,
   }),
+  openId: PropTypes.number,
+  setOpenId: PropTypes.func,
 };
