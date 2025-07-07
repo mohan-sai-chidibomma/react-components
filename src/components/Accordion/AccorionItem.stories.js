@@ -6,6 +6,9 @@ export default {
   title: "Mohan Sai/React Components/AccordionItem",
   component: AccordionItem,
   tags: ["autodocs"],
+  parameters: {
+    layout: "centered",
+  },
 };
 
 const sampleItem = {

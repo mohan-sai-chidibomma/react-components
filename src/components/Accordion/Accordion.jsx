@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import AccordionItem from "./AccordionItem";
+import "./Accordion.css";
+
 export const FAQS = [
   {
     id: 1,
