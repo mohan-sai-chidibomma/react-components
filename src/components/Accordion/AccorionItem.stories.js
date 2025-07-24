@@ -3,7 +3,7 @@ import AccordionItem from "./AccordionItem";
 import { fn } from "storybook/internal/test";
 
 export default {
-  title: "Mohan Sai/React Components/AccordionItem",
+  title: "Mohan Sai/React Components/Accordion/AccordionItem",
   component: AccordionItem,
   tags: ["autodocs"],
   parameters: {

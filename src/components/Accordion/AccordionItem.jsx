@@ -9,7 +9,7 @@ export default function AccordionItem({ item, openId, setOpenId }) {
     isOpen ? setOpenId(null) : setOpenId(item.id);
   };
   return (
-    <div className="accordion-item">
+    <div className={`accordion-item ${isOpen ? "highlight" : ""}`}>
       <p className="accordion-item-serial-number">
         {item.id.toString().padStart(2, "0")}
       </p>

@@ -2,7 +2,7 @@ import React from "react";
 import Accordion, { FAQS } from "./Accordion";
 
 export default {
-  title: "Mohan Sai/React Components/Accordion",
+  title: "Mohan Sai/React Components/Accordion/Accordion",
   component: Accordion,
   parameters: {
     layout: "centered",

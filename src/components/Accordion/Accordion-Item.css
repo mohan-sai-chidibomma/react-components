@@ -56,3 +56,7 @@
 .open {
   display: block;
 }
+
+.highlight {
+  border-top: 2px solid #00b9e8;
+}
