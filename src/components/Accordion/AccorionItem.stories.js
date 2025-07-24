@@ -1,4 +1,3 @@
-import React from "react";
 import AccordionItem from "./AccordionItem";
 import { fn } from "storybook/internal/test";
 
