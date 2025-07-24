@@ -75,6 +75,7 @@ export default function Carousel({ data = CAROUSEL_DATA }) {
           <button
             key={profile.src}
             className={`dot ${activeIndex === index ? "dot-filled" : ""}`}
+            onClick={() => setActiveIndex(index)}
           >
             &nbsp;
           </button>

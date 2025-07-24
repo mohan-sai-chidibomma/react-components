@@ -9,26 +9,29 @@
   font-family: sans-serif;
   line-height: 1;
 
-  /* width: 800px; */
-  /* padding: 64px; */
+  width: 800px;
+  height: 150px;
   padding: 16px 32px 16px 48px;
   background-color: #2563eb;
   border-radius: 12px;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
-  flex: 1 1 auto;
+  flex: 1;
   gap: 40px;
 
   position: relative;
 }
 
 .profile-pic {
-  width: 100px;
+  width: 125px;
   border-radius: 12px;
   transform: scale(1.5);
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.18), 0 0 24px rgba(0, 0, 0, 0.25);
+
+  /* transform: translate(10px); */
+  margin-left: 10px;
 }
 
 .blockquote {
@@ -106,6 +109,7 @@
   background-color: white;
   border: 2px solid #2563eb;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .dot-filled {
