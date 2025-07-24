@@ -1,4 +1,3 @@
-import React from "react";
 import Accordion, { FAQS } from "./Accordion";
 
 export default {
