@@ -1,6 +1,6 @@
 {
   "name": "@mohansai850/react-components",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "private": false,
   "publishConfig": {
     "access": "public"
