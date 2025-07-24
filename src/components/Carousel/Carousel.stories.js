@@ -1,5 +1,5 @@
-import React from "react";
 import Carousel from "./Carousel";
+import { CAROUSEL_DATA } from "./carousel.const";
 
 export default {
   title: "Mohan Sai/React Components/Carousel",
@@ -11,7 +11,7 @@ export default {
 };
 
 export const Default = {
-  // args: {
-  //   data: FAQS,
-  // },
+  args: {
+    data: CAROUSEL_DATA,
+  },
 };

@@ -84,6 +84,10 @@
   stroke: #2563eb;
 }
 
+.btn-icon-disabled {
+  stroke: #cbd5e1;
+}
+
 .dot-group {
   position: absolute;
   bottom: 0;
