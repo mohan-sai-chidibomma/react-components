@@ -5,7 +5,6 @@
 }
 
 .btn {
-  min-width: 80px;
   transition-duration: 0.5s;
   padding: 10px;
   cursor: pointer;
