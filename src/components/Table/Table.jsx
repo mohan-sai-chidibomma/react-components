@@ -46,11 +46,13 @@ export default function Table({ headers = HEADERS, data = DATA }) {
   return (
     <table className="table">
       <thead className="thead">
-        {headers.map((header) => (
-          <th key={header.key} className="th">
-            {header.label}
-          </th>
-        ))}
+        <tr>
+          {headers.map((header) => (
+            <th key={header.key} className="th">
+              {header.label}
+            </th>
+          ))}
+        </tr>
       </thead>
       <tbody>
         {data.map((data, dataIndex) => (
