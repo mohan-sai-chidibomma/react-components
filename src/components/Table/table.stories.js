@@ -1,4 +1,5 @@
 import Table from "./Table";
+import { DATA, HEADERS } from "./util";
 
 export default {
   title: "Mohan Sai/React Components/Table",
@@ -10,7 +11,8 @@ export default {
 };
 
 export const Default = {
-  //   args: {
-  //     data: CAROUSEL_DATA,
-  //   },
+  args: {
+    data: DATA,
+    headers: HEADERS,
+  },
 };

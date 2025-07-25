@@ -20,16 +20,26 @@ body {
   background-color: #628ce8;
 }
 
-.tbody .td {
+.td {
   text-align: center;
 }
 
-.th {
+.th,
+.td {
   padding: 16px;
 }
-.tbody .tr:nth-child(odd) {
+.tr:nth-child(odd) {
   background-color: #ecf0f1;
 }
-.tbody .tr:nth-child(even) {
+.tr:nth-child(even) {
   background-color: #ccd2d6;
+}
+
+.tr .td:first-child {
+  text-align: left;
+  font-weight: 800;
+}
+
+.th:first-child {
+  text-align: left;
 }
