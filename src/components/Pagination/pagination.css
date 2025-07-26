@@ -10,8 +10,10 @@
   line-height: 1;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+
+  width: 400px;
 }
 
 .pagination-left-button,

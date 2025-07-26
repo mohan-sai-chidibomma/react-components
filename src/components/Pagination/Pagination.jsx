@@ -7,13 +7,18 @@ export default function Pagination({ totalPages = 15 }) {
   const [currentPage, setCurrentPage] = useState(1);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
-  let showDots = false;
+  let showStartingDots = false;
+  let showEndingDots = false;
   const showedPageNumbers = [];
   for (let i = currentPage - 2; i <= currentPage + 2; i++) {
-    if (i > 0 && i <= totalPages - 1) showedPageNumbers.push(i);
+    if (i > 1 && i <= totalPages - 1) showedPageNumbers.push(i);
   }
   if (showedPageNumbers.at(-1) <= totalPages - 2) {
-    showDots = true;
+    showEndingDots = true;
+  }
+
+  if (showedPageNumbers.at(0) >= 3) {
+    showStartingDots = true;
   }
 
   console.log(showedPageNumbers);
@@ -43,6 +48,14 @@ export default function Pagination({ totalPages = 15 }) {
           />
         </svg>
       </button>
+      <button
+        className={`page-number ${isFirstPage ? "page-number--active" : ""}`}
+        key={1}
+        onClick={() => setCurrentPage(1)}
+      >
+        {1}
+      </button>
+      {showStartingDots && <span className="dots">...</span>}
       {showedPageNumbers.map((pageNumber) => (
         <button
           className={`page-number ${
@@ -54,7 +67,7 @@ export default function Pagination({ totalPages = 15 }) {
           {pageNumber}
         </button>
       ))}
-      {showDots && <span className="dots">...</span>}
+      {showEndingDots && <span className="dots">...</span>}
       <button
         className={`page-number ${isLastPage ? "page-number--active" : ""}`}
         key={totalPages}
