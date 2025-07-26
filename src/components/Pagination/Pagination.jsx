@@ -68,13 +68,15 @@ export default function Pagination({ totalPages = 15 }) {
         </button>
       ))}
       {showEndingDots && <span className="dots">...</span>}
-      <button
-        className={`page-number ${isLastPage ? "page-number--active" : ""}`}
-        key={totalPages}
-        onClick={() => setCurrentPage(totalPages)}
-      >
-        {totalPages}
-      </button>
+      {totalPages > 1 && (
+        <button
+          className={`page-number ${isLastPage ? "page-number--active" : ""}`}
+          key={totalPages}
+          onClick={() => setCurrentPage(totalPages)}
+        >
+          {totalPages}
+        </button>
+      )}
       <button
         type="button"
         className={`pagination-right-button ${
