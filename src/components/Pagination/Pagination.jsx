@@ -16,6 +16,8 @@ export default function Pagination({ totalPages = 15 }) {
     showDots = true;
   }
 
+  console.log(showedPageNumbers);
+
   return (
     <div className="pagination">
       <button
@@ -42,24 +44,24 @@ export default function Pagination({ totalPages = 15 }) {
         </svg>
       </button>
       {showedPageNumbers.map((pageNumber) => (
-        <a
-          href="#"
+        <button
           className={`page-number ${
             pageNumber === currentPage ? "page-number--active" : ""
           }`}
           key={pageNumber}
+          onClick={() => setCurrentPage(pageNumber)}
         >
           {pageNumber}
-        </a>
+        </button>
       ))}
       {showDots && <span className="dots">...</span>}
-      <a
-        href="#"
+      <button
         className={`page-number ${isLastPage ? "page-number--active" : ""}`}
         key={totalPages}
+        onClick={() => setCurrentPage(totalPages)}
       >
         {totalPages}
-      </a>
+      </button>
       <button
         type="button"
         className={`pagination-right-button ${
