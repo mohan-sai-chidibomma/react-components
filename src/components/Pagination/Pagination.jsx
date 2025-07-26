@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 
 import "./pagination.css";
 
-export default function Pagination({ totalPages = 15 }) {
+export default function Pagination({ totalPages }) {
+  // if (totalPages < 1) {
+  //   // throw new Error("totalPages prop should be greater than zero.");
+  // }
   const [currentPage, setCurrentPage] = useState(1);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
+  const noPages = totalPages < 1;
   let showStartingDots = false;
   let showEndingDots = false;
   const showedPageNumbers = [];
@@ -21,17 +25,17 @@ export default function Pagination({ totalPages = 15 }) {
     showStartingDots = true;
   }
 
-  console.log(showedPageNumbers);
+  console.log("reload");
 
   return (
     <div className="pagination">
       <button
         type="button"
         className={`pagination-left-button ${
-          isFirstPage ? "pagination-left-button--disabled" : ""
+          isFirstPage || noPages ? "pagination-left-button--disabled" : ""
         }`}
         onClick={() => setCurrentPage((page) => page - 1)}
-        disabled={isFirstPage}
+        disabled={isFirstPage || noPages}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -48,13 +52,16 @@ export default function Pagination({ totalPages = 15 }) {
           />
         </svg>
       </button>
-      <button
-        className={`page-number ${isFirstPage ? "page-number--active" : ""}`}
-        key={1}
-        onClick={() => setCurrentPage(1)}
-      >
-        {1}
-      </button>
+      {noPages && <div className="no-pages">No pages to show</div>}
+      {totalPages > 0 && (
+        <button
+          className={`page-number ${isFirstPage ? "page-number--active" : ""}`}
+          key={1}
+          onClick={() => setCurrentPage(1)}
+        >
+          {1}
+        </button>
+      )}
       {showStartingDots && <span className="dots">...</span>}
       {showedPageNumbers.map((pageNumber) => (
         <button
@@ -80,10 +87,10 @@ export default function Pagination({ totalPages = 15 }) {
       <button
         type="button"
         className={`pagination-right-button ${
-          isLastPage ? "pagination-right-button--disabled" : ""
+          isLastPage || noPages ? "pagination-right-button--disabled" : ""
         }`}
         onClick={() => setCurrentPage((page) => page + 1)}
-        disabled={isLastPage}
+        disabled={isLastPage || noPages}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

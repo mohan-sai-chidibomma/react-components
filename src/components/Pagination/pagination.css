@@ -77,3 +77,7 @@
   background-color: #f0f0f0;
   border-color: #ccc;
 }
+
+.no-pages {
+  color: red;
+}

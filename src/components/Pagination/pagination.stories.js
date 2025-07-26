@@ -8,7 +8,7 @@ export default {
   },
   tags: ["autodocs"],
   argTypes: {
-    totalPages: { control: { type: "number", min: 1 } },
+    totalPages: { control: { type: "number" } },
   },
 };
 
