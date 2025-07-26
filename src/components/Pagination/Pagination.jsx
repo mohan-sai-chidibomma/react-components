@@ -6,7 +6,7 @@ import axios from "axios";
 
 const URI = "https://jsonplaceholder.typicode.com/users";
 
-export default function Pagination({ totalRecords, limit = 10 }) {
+export default function Pagination({ totalRecords = 0, limit = 10 }) {
   // if (!totalRecords) {
   //   throw new Error(
   //     "totalRecords prop is required and should be greater than zero."
@@ -105,7 +105,7 @@ export default function Pagination({ totalRecords, limit = 10 }) {
           className={`page-number ${isLastPage ? "page-number--active" : ""}`}
           key={totalPages}
           onClick={() => {
-            getData((totalPages - 1) * 10);
+            getData((totalPages - 1) * limit);
             setCurrentPage(totalPages);
           }}
         >
