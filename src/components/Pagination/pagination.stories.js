@@ -8,12 +8,14 @@ export default {
   },
   tags: ["autodocs"],
   argTypes: {
-    totalPages: { control: { type: "number" } },
+    totalRecords: { control: { type: "number" } },
+    limit: { control: { type: "number" } },
   },
 };
 
 export const Default = {
   args: {
-    totalPages: 5,
+    totalRecords: 150,
+    limit: 10,
   },
 };

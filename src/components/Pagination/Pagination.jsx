@@ -2,12 +2,18 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import "./pagination.css";
+import axios from "axios";
 
-export default function Pagination({ totalPages }) {
-  // if (totalPages < 1) {
-  //   // throw new Error("totalPages prop should be greater than zero.");
+const URI = "https://jsonplaceholder.typicode.com/users";
+
+export default function Pagination({ totalRecords, limit = 10 }) {
+  // if (!totalRecords) {
+  //   throw new Error(
+  //     "totalRecords prop is required and should be greater than zero."
+  //   );
   // }
   const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(totalRecords / limit);
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
   const noPages = totalPages < 1;
@@ -25,11 +31,17 @@ export default function Pagination({ totalPages }) {
     showStartingDots = true;
   }
 
-  console.log("reload");
+  const getData = async (offset) => {
+    await axios.get(`${URI}?limit=${limit}&offset=${offset}`);
+  };
 
   useEffect(() => {
     setCurrentPage(1);
   }, [totalPages]);
+
+  useEffect(() => {
+    getData(0);
+  }, []);
 
   return (
     <div className="pagination">
@@ -38,7 +50,10 @@ export default function Pagination({ totalPages }) {
         className={`pagination-left-button ${
           isFirstPage || noPages ? "pagination-left-button--disabled" : ""
         }`}
-        onClick={() => setCurrentPage((page) => page - 1)}
+        onClick={() => {
+          getData((currentPage - 2) * limit);
+          setCurrentPage((page) => page - 1);
+        }}
         disabled={isFirstPage || noPages}
       >
         <svg
@@ -61,7 +76,10 @@ export default function Pagination({ totalPages }) {
         <button
           className={`page-number ${isFirstPage ? "page-number--active" : ""}`}
           key={1}
-          onClick={() => setCurrentPage(1)}
+          onClick={() => {
+            getData(0);
+            setCurrentPage(1);
+          }}
         >
           {1}
         </button>
@@ -73,7 +91,10 @@ export default function Pagination({ totalPages }) {
             pageNumber === currentPage ? "page-number--active" : ""
           }`}
           key={pageNumber}
-          onClick={() => setCurrentPage(pageNumber)}
+          onClick={() => {
+            getData((pageNumber - 1) * limit);
+            setCurrentPage(pageNumber);
+          }}
         >
           {pageNumber}
         </button>
@@ -83,7 +104,10 @@ export default function Pagination({ totalPages }) {
         <button
           className={`page-number ${isLastPage ? "page-number--active" : ""}`}
           key={totalPages}
-          onClick={() => setCurrentPage(totalPages)}
+          onClick={() => {
+            getData((totalPages - 1) * 10);
+            setCurrentPage(totalPages);
+          }}
         >
           {totalPages}
         </button>
@@ -93,7 +117,10 @@ export default function Pagination({ totalPages }) {
         className={`pagination-right-button ${
           isLastPage || noPages ? "pagination-right-button--disabled" : ""
         }`}
-        onClick={() => setCurrentPage((page) => page + 1)}
+        onClick={() => {
+          getData(currentPage * limit);
+          setCurrentPage((page) => page + 1);
+        }}
         disabled={isLastPage || noPages}
       >
         <svg
@@ -116,5 +143,6 @@ export default function Pagination({ totalPages }) {
 }
 
 Pagination.propTypes = {
-  totalPages: PropTypes.number.isRequired,
+  totalRecords: PropTypes.number.isRequired,
+  limit: PropTypes.number.isRequired,
 };
