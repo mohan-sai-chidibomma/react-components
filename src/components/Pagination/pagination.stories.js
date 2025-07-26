@@ -7,11 +7,13 @@ export default {
     layout: "centered",
   },
   tags: ["autodocs"],
+  argTypes: {
+    totalPages: { control: { type: "number", min: 1 } },
+  },
 };
 
 export const Default = {
-  //   args: {
-  //     data: DATA,
-  //     headers: HEADERS,
-  //   },
+  args: {
+    totalPages: 5,
+  },
 };

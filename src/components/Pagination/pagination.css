@@ -65,3 +65,11 @@
   background-color: #628ce8;
   color: white;
 }
+
+.pagination-left-button--disabled,
+.pagination-right-button--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: #f0f0f0;
+  border-color: #ccc;
+}
