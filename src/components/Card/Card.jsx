@@ -2,9 +2,9 @@ import styles from "./card.module.css";
 import React from "react";
 import PropTypes from "prop-types";
 
-export default function Card({ children }) {
+export default function Card({ children, className = "" }) {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${className}`}>
       {/* <img
         src="public\meal-1.jpg"
         alt="An image of a Vegetarian meal"
@@ -27,4 +27,5 @@ export default function Card({ children }) {
 
 Card.propTypes = {
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
 };
