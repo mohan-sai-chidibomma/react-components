@@ -4,3 +4,4 @@ export { default as Carousel } from "./src/components/Carousel/Carousel";
 export { default as Table } from "./src/components/Table/Table";
 export { default as Pagination } from "./src/components/Pagination/Pagination";
 export { default as Card } from "./src/components/Card/Card";
+export { default as Testimonial } from "./src/components/Testimonial/Testimonial";
