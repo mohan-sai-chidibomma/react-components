@@ -1,7 +1,7 @@
 import Accordion, { FAQS } from "./Accordion";
 
 export default {
-  title: "Mohan Sai/React Components/Accordion/Accordion",
+  title: "Mohan Sai/React Components/Accordion",
   component: Accordion,
   parameters: {
     layout: "centered",
