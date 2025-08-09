@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./Button.css";
+import styles from "./Button.module.css";
 import PropTypes from "prop-types";
 
 const Button = ({
@@ -9,9 +8,12 @@ const Button = ({
   size = "medium",
   ...props
 }) => {
-  const className = `btn btn-${buttonType} btn-${size} ${
-    props.disabled ? "btn-disabled" : ""
-  }`;
+  const className = `
+    ${styles.btn} 
+    ${styles[`btn-${buttonType}`]} 
+    ${styles[`btn-${size}`]} 
+    ${props.disabled ? styles["btn-disabled"] : ""}
+  `.trim();
 
   return (
     <button className={className} {...props}>
