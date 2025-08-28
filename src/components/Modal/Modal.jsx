@@ -49,7 +49,7 @@ export default function Modal({ onClose, children, ref }) {
 }
 
 Modal.propTypes = {
-  onClose: PropTypes.func.isRequired,
+  onClose: PropTypes.func,
   children: PropTypes.node.isRequired,
   ref: PropTypes.oneOfType([
     PropTypes.func,
