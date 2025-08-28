@@ -6,9 +6,10 @@ const Button = ({
   children,
   buttonType = "primary",
   size = "medium",
+  className = "",
   ...props
 }) => {
-  const className = `
+  const classes = ` ${className}
     ${styles.btn} 
     ${styles[`btn-${buttonType}`]} 
     ${styles[`btn-${size}`]} 
@@ -16,7 +17,7 @@ const Button = ({
   `.trim();
 
   return (
-    <button className={className} {...props}>
+    <button className={classes} {...props}>
       {children}
     </button>
   );
@@ -27,6 +28,7 @@ Button.propTypes = {
   buttonType: PropTypes.oneOf(["primary", "secondary", "danger"]),
   size: PropTypes.oneOf(["large", "medium", "small"]),
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -34,6 +36,7 @@ Button.defaultProps = {
   buttonType: "primary",
   size: "medium",
   disabled: false,
+  className: "",
 };
 
 export default Button;
