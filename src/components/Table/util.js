@@ -6,7 +6,12 @@ export const HEADERS = [
 ];
 
 export const DATA = [
-  { name: "Mohan Sai", age: 25, email: "alice@example.com", role: "Captain" },
+  {
+    name: "Mohan Sai",
+    age: 25,
+    email: "mohansai850@gmail.com",
+    role: "Captain",
+  },
   {
     name: "Subhman Gill",
     age: 28,
@@ -16,8 +21,8 @@ export const DATA = [
   {
     name: "Mitchelle Johnson",
     age: 30,
-    email: "bob@example.com",
+    email: "mitch@example.com",
     role: "Wicket Keeper",
   },
-  { name: "Ben Stokes", age: 28, email: "charlie@example.com", role: "Batter" },
+  { name: "Ben Stokes", age: 28, email: "ben@example.com", role: "Batter" },
 ];
