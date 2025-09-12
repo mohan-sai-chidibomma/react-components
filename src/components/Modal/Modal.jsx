@@ -1,21 +1,26 @@
-import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import Button from "../Button/Button";
 import styles from "./modal.module.css";
 
-export default function Modal({ onClose, children, ref }) {
+export default function Modal({ isOpen, onClose, children }) {
   const [mounted, setMounted] = useState(false);
   const modalRootRef = useRef(null);
-  const dialogRef = useRef(null);
+  const dialogRef = useRef();
 
-  useImperativeHandle(ref, () => {
-    return {
-      open() {
-        dialogRef.current.showModal();
-      },
-    };
-  });
+  useEffect(() => {
+    const modal = dialogRef.current;
+    if (!modal) return;
+    if (isOpen) {
+      modal.showModal();
+    } else {
+      modal.close();
+    }
+    // return () => {
+    //   modal.close();
+    // };
+  }, [isOpen]);
 
   useEffect(() => {
     const div = document.createElement("div");
@@ -49,6 +54,7 @@ export default function Modal({ onClose, children, ref }) {
 }
 
 Modal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
   onClose: PropTypes.func,
   children: PropTypes.node.isRequired,
   ref: PropTypes.oneOfType([
