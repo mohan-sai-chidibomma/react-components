@@ -1,9 +1,8 @@
 .btn {
   transition-duration: 0.5s;
-  padding: 10px;
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
+  border-radius: 5px;
   font-weight: 700;
 }
 
@@ -13,8 +12,8 @@
 }
 
 .btn-secondary {
-  background-color: #8aaac5;
-  color: #333;
+  background-color: #eef3f7;
+  color: #746ff8;
 }
 
 .btn-danger {
@@ -23,17 +22,17 @@
 
 .btn-primary.btn-disabled {
   background-color: rgba(116, 111, 248, 0.4);
-  color: #aaa;
+  /* color: #8f8cf9; */
 }
 
 .btn-secondary.btn-disabled {
-  background-color: rgba(138, 170, 197, 0.4);
-  color: #bbb;
+  background-color: rgba(229, 239, 245, 0.4);
+  color: #d4d3fd;
 }
 
 .btn-danger.btn-disabled {
   background-color: rgba(247, 18, 18, 0.4);
-  color: #eee;
+  /* color: #eee; */
 }
 
 .btn-disabled {
