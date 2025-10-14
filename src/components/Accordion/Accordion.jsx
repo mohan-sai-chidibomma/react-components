@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import PropTypes from "prop-types";
 import AccordionItem from "./AccordionItem";
 import "./Accordion.css";
+
+const content = (
+  <article>
+    <h5>Hi</h5>
+    <p>Hi this is Mohan Sai Chidibomma</p>
+  </article>
+);
 
 export const FAQS = [
   {
@@ -19,23 +26,44 @@ export const FAQS = [
     title: "How do I use props?",
     content: "Props are used to pass data from parent to child components.",
   },
+  {
+    id: 4,
+    title: "Experiment",
+    content,
+  },
 ];
+
+export const AccordionContext = createContext();
+
+export function useAccordionContext() {
+  const ctx = useContext(AccordionContext);
+  if (!ctx)
+    throw new Error(
+      "<Accodion.Item> component should be used inside of <Accordion> component"
+    );
+
+  return ctx;
+}
 
 export default function Accordion({ data = FAQS }) {
   const [openId, setOpenId] = useState(null);
+
+  const ctxValue = { openId, setOpenId };
+
   return (
-    <div className="accordion">
-      {data.map((item) => (
-        <AccordionItem
-          key={item.id}
-          item={item}
-          openId={openId}
-          setOpenId={setOpenId}
-        />
-      ))}
-    </div>
+    <AccordionContext.Provider value={ctxValue}>
+      <ul className="accordion">
+        {data.map((item) => (
+          <li key={item.id}>
+            <Accordion.Item item={item} />
+          </li>
+        ))}
+      </ul>
+    </AccordionContext.Provider>
   );
 }
+
+Accordion.Item = AccordionItem;
 
 Accordion.propTypes = {
   data: PropTypes.arrayOf(
