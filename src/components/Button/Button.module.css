@@ -12,7 +12,8 @@
 }
 
 .btn-secondary {
-  background-color: #eef3f7;
+  background: none;
+  border: none;
   color: #746ff8;
 }
 
@@ -42,6 +43,11 @@
 
 .btn:not(:disabled):hover {
   box-shadow: 0 0 6px 0 grey;
+}
+
+.btn-secondary:not(:disabled):hover,
+.btn.btn-secondary:not(:disabled):hover {
+  box-shadow: none !important;
 }
 
 .btn-large {
